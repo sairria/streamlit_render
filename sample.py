@@ -5,8 +5,9 @@ import numpy as np
 from sqlalchemy import create_engine, text
 
 
+# Correct connection string to Render database
 warehouse = "postgresql://airyll_user:iKiLhVkL0nHuRn2BFTsGWdmM4vEQI7Ls@dpg-d0k5tbruibrs73983cs0-a.singapore-postgres.render.com/airyll"
-engine = create_engine(warehouse,  client_encoding='utf8')
+engine = create_engine(warehouse, client_encoding='utf8')
 connection = engine.connect()
 
 
@@ -15,7 +16,7 @@ connection = engine.connect()
 def load_data():
     query = """
         SELECT "Product", COUNT(*) AS count
-        FROM final
+        FROM sales_data_duckdb  -- 'sales_data'
         GROUP BY "Product";
     """
     result = connection.execute(text(query))
