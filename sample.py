@@ -4,8 +4,8 @@ import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine, text
 
-# ✅ Securely fetch database URL
-warehouse = os.getenv("DATABASE_URL")
+warehouse = os.getenv("warehouse = "postgresql://airyll_user:iKiLhVkL0nHuRn2BFTsGWdmM4vEQI7Ls@dpg-d0k5tbruibrs73983cs0-a.singapore-postgres.render.com/airyll"
+")
 if not warehouse:
     st.error("❌ Environment variable DATABASE_URL not set!")
     st.stop()
