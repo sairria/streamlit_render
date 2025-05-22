@@ -1,11 +1,13 @@
+from dotenv import load_dotenv
 import os
 import streamlit as st
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine, text
 
-warehouse = os.getenv("warehouse = "postgresql://airyll_user:iKiLhVkL0nHuRn2BFTsGWdmM4vEQI7Ls@dpg-d0k5tbruibrs73983cs0-a.singapore-postgres.render.com/airyll"
-")
+load_dotenv()
+
+warehouse = os.getenv("DATABASE_URL")
 if not warehouse:
     st.error("❌ Environment variable DATABASE_URL not set!")
     st.stop()
